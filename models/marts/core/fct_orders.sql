@@ -30,7 +30,8 @@ final as (
 
     from orders
 
-    left join order_payments using (order_id)
+    left join order_payments 
+        on orders.order_id = order_payments.order_id
 
 )
 

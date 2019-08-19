@@ -19,7 +19,7 @@ final as (
 
     from payments
 
-    group by 1
+    group by order_id
 
 )
 
