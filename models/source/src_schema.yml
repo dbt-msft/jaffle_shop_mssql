@@ -1,0 +1,167 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: source
+    loader: ADLSblob
+    tables:
+      # - name: MasterSAPHRAvaOrgUnitDim
+      - name: newOrgHierarchy2__tmp
+        description: >
+          TODO
+        external:
+          data_source: AEDW
+          schema_name: Source
+          object_name: MasterSAPHRAvaOrgUnitDim
+          materialize: true
+        columns:
+          - name: OrgUnitID
+            description: TODO
+            data_type: varchar(8)
+          - name: OrgUnitDescr
+            description: TODO
+            data_type: varchar(40)
+          - name: OrgUnitLevel
+            description: TODO
+            data_type: varchar(40)
+          - name: OrgLevel0Cd
+            description: TODO
+            data_type: varchar(8)
+          - name: OrgLevel0Descr
+            description: TODO
+            data_type: varchar(50)
+          - name: OrgLevel1Cd
+            description: TODO
+            data_type: varchar(8)
+          - name: OrgLevel1Descr
+            description: TODO
+            data_type: varchar(50)
+          - name: OrgLevel2Cd
+            description: TODO
+            data_type: varchar(8)
+          - name: OrgLevel2Descr
+            description: TODO
+            data_type: varchar(50)
+          - name: OrgLevel3Cd
+            description: TODO
+            data_type: varchar(8)
+          - name: OrgLevel3Descr
+            description: TODO
+            data_type: varchar(50)
+          - name: OrgLevel4Cd
+            description: TODO
+            data_type: varchar(8)
+          - name: OrgLevel4Descr
+            description: TODO
+            data_type: varchar(50)
+          - name: OrgLevel5Cd
+            description: TODO
+            data_type: varchar(8)
+          - name: OrgLevel5Descr
+            description: TODO
+            data_type: varchar(50)
+          - name: OrgLevel6Cd
+            description: TODO
+            data_type: varchar(8)
+          - name: OrgLevel6Descr
+            description: TODO
+            data_type: varchar(50)
+          - name: OrgLevel7Cd
+            description: TODO
+            data_type: varchar(8)
+          - name: OrgLevel7Descr
+            description: TODO
+            data_type: varchar(50)
+          - name: OrgLevel8Cd
+            description: TODO
+            data_type: varchar(8)
+          - name: OrgLevel8Descr
+            description: TODO
+            data_type: varchar(50)
+          - name: OrgLevel9Cd
+            description: TODO
+            data_type: varchar(8)
+          - name: OrgLevel9Descr
+            description: TODO
+            data_type: varchar(50)
+          - name: OrgLevel10Cd
+            description: TODO
+            data_type: varchar(8)
+          - name: OrgLevel10Descr
+            description: TODO
+            data_type: varchar(50)
+          - name: OrgLevel11Cd
+            description: TODO
+            data_type: varchar(8)
+          - name: OrgLevel11Descr
+            description: TODO
+            data_type: varchar(50)
+          - name: OrgLevel12Cd
+            description: TODO
+            data_type: varchar(8)
+          - name: OrgLevel12Descr
+            description: TODO
+            data_type: varchar(50)
+          - name: lvl0
+            description: TODO
+            data_type: varchar(50)
+          - name: lvl1
+            description: TODO
+            data_type: varchar(50)
+          - name: lvl2
+            description: TODO
+            data_type: varchar(50)
+          - name: lvl3
+            description: TODO
+            data_type: varchar(50)
+          - name: lvl4
+            description: TODO
+            data_type: varchar(50)
+          - name: lvl5
+            description: TODO
+            data_type: varchar(50)
+          - name: lvl6
+            description: TODO
+            data_type: varchar(50)
+          - name: lvl7
+            description: TODO
+            data_type: varchar(50)
+          - name: lvl8
+            description: TODO
+            data_type: varchar(50)
+          - name: lvl9
+            description: TODO
+            data_type: varchar(50)
+          - name: lvl10
+            description: TODO
+            data_type: varchar(50)
+          - name: lvl11
+            description: TODO
+            data_type: varchar(50)
+          - name: lvl12
+            description: TODO
+            data_type: varchar(50)
+          - name: SkillRegion
+            description: TODO
+            data_type: varchar(50)
+          - name: AMBG
+            description: TODO
+            data_type: varchar(50)
+          - name: Active
+            description: TODO
+            data_type: bit
+          - name: RowStartDt
+            description: TODO
+            data_type: datetime
+          - name: RowEndDt
+            description: TODO
+            data_type: datetime
+          - name: RowIsCurrent
+            description: TODO
+            data_type: bit
+          - name: UpdateUserId
+            description: TODO
+            data_type: varchar(160)
+          - name: UpdateTs
+            description: TODO
+            data_type: datetime
