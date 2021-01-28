@@ -2,7 +2,7 @@
 name: 'jaffle_shop'
 version: '0.1'
 config-version: 2
-profile: 'integration_tests'
+profile: 'jaffle_shop'
 source-paths: ["models"]
 analysis-paths: ["analysis"]
 test-paths: ["tests"]
@@ -20,6 +20,7 @@ vars:
 
 models:
   jaffle_shop:
+      +as_columnstore: false
       materialized: table
       staging:
         materialized: view
