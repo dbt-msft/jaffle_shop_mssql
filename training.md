@@ -75,7 +75,7 @@ here's where our special [`dim_customers.sql`](dim_customers.sql) lives (theirs 
 
 - [Kyle's amazing course](https://courses.getdbt.com)
 - [Claire's classic text + video walkthrough](https://docs.getdbt.com/tutorial/setting-up)
-- [thorough docs worth going through](https://docs.getdbt.com/docs/building-a-dbt-project/)
+- [thorough docs worth going through](https://docs.getdbt.com/docs/building-a-dbt-project/projects)
 
 
 ## 3. dbt+msft better together
