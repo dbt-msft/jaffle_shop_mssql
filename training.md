@@ -52,19 +52,20 @@ Here's a partial list of steps
       2. `better jinja`
       3. `vscode-dbt`
       4. `rainbow csv`
-2. set up `profiles.yml`
+1. set up `profiles.yml`
    1. open [profiles_example.yml](profiles_example.yml)
    2. save it into your user folder in a new directory called `.dbt` and rename it to `profiles.yml`
    3. change the `schema` field to your initials
-1. Open Azure Data Studio and to log in to our database
+2. Open Azure Data Studio and to log in to our database
    1. connection info:
       2. server: dbtavatrain.database.windows.net
       1. database: sandbox
-2. touch db using dbt
+3. touch db using dbt
    1. open up a new terminal and run
       1. `az login`
       2. `az account set --subscription ff2e23ae-7d7c-4cbd-99b8-116bb94dca6e`
-   2. 
+   2. `pip install dbt-sqlserver`
+   3. `dbt debug` it should show all green and get no error message!
 
 
 ## 2. Learning dbt from better teachers than Anders
@@ -83,3 +84,5 @@ here's where our special [`dim_customers.sql`](dim_customers.sql) lives (theirs 
 - [the dbt viewpoint](https://docs.getdbt.com/docs/about/viewpoint)
 - [dbt-utils](https://github.com/fishtown-analytics/dbt-utils)
 - production workflow
+
+## 4. how can it help Avanade?
