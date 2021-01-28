@@ -57,6 +57,9 @@ Here's a partial list of steps
    2. save it into your user folder in a new directory called `.dbt` and rename it to `profiles.yml`
    3. change the `schema` field to your initials
 1. Open Azure Data Studio and to log in to our database
+   1. connection info:
+      2. server: dbtavatrain.database.windows.net
+      1. database: sandbox
 2. touch db using dbt
    1. open up a new terminal and run
       1. `az login`
