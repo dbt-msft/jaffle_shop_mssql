@@ -1,15 +1,13 @@
 jaffle_shop:
   target: azsql
   outputs:
-    azsql:
-      # change  
+    azsql: 
       schema: change_me
       type: sqlserver
       driver: "ODBC Driver 17 for SQL Server"
-      host: dbt-ava-server.database.windows.net
+      host: dbtavatrain.database.windows.net
       database: sandbox
-      username: change_me
-      passsword: change_me
+      authentication: CLI
       port: 1433
       encrypt: True
       trust_cert: True
