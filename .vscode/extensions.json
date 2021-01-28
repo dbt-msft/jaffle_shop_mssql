@@ -1,0 +1,9 @@
+
+{
+    "recommendations": [
+        "ms-python.python",
+        "mechatroner.rainbow-csv",
+        "samuelcolvin.jinjahtml",
+        "bastienboutonnet.vscode-dbt"
+    ]
+}

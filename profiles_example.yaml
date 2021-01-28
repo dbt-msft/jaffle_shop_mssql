@@ -1,0 +1,13 @@
+jaffle_shop:
+  target: azsql
+  outputs:
+    azsql: 
+      schema: change_me
+      type: sqlserver
+      driver: "ODBC Driver 17 for SQL Server"
+      host: dbtavatrain.database.windows.net
+      database: sandbox
+      authentication: CLI
+      port: 1433
+      encrypt: True
+      trust_cert: True

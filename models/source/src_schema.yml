@@ -1,0 +1,51 @@
+version: 2
+
+sources:
+  - name: shopify_raw
+    schema: raw
+    tables:
+      - name: customers
+        description: our customer dim table
+        columns:
+          - name: id
+            description: Shopify's unique customer id
+            data_type: int
+          - name: first_name
+            description: first name
+            data_type: varchar(16)
+          - name: last_name
+            description: last_name
+            data_type: varchar(16)
+          - name: email
+            description: email for account
+            data_type: varchar(31)
+      - name: orders
+        description: our customer dim table
+        columns:
+          - name: id
+            description: order id
+            data_type: int
+          - name: user_id
+            description: really customer id
+            data_type: int
+          - name: order_date
+            description: last_name
+            data_type: varchar(16)
+          - name: status
+            description: order status
+            data_type: varchar(16)
+      - name: payments
+        description: our customer dim table
+        columns:
+          - name: id
+            description: customer id
+            data_type: int
+          - name: order_id
+            description: order id
+            data_type: int
+          - name: payment_method
+            description: one of cash, check, card
+            data_type: varchar(16)
+          - name: amount
+            description: amount in USD
+            data_type: int
