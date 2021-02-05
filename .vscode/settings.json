@@ -35,10 +35,20 @@
       ],
     "findrelated.applyRulesets": ["sql"],
     "findrelated.openSideBySide": true,
+
+
+    "[jinja-sql]": {
+        // "editor.formatOnSave":true,
+        "editor.rulers": [52, 92],
+        "editor.tabSize": 4,
+    },
+
     "workbench.editor.highlightModifiedTabs": true,
     // make Command Prompt the default shell for Windows
-    "terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe"
+    "terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe",
     // you'll have to addd this setting to be your anaconda python path
-    // "python.pythonPath": ""
+    "python.pythonPath": "/Users/anders.swanson/opt/anaconda3/envs/DEV-dbt-syn/bin/python",
+    "sql.linter.executablePath": "/Users/anders.swanson/opt/anaconda3/envs/dbt/bin/sqlfluff",
+
 
 }
