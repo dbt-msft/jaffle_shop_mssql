@@ -1,10 +1,15 @@
-
 {
     "recommendations": [
+        // needed to get anaconda working in VSCode
         "ms-python.python",
+        // makes viewing csv's easier
         "mechatroner.rainbow-csv",
+        // better syntax highlighting for
+        // code w/ Jinja in it (including SQL)
         "samuelcolvin.jinjahtml",
+        // nice dbt snippets like 'log' and 'if'
         "bastienboutonnet.vscode-dbt",
+        // for auto finding related files
         "eamodio.find-related"
     ]
 }
