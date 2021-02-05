@@ -4,6 +4,7 @@
         "ms-python.python",
         "mechatroner.rainbow-csv",
         "samuelcolvin.jinjahtml",
-        "bastienboutonnet.vscode-dbt"
+        "bastienboutonnet.vscode-dbt",
+        "eamodio.find-related"
     ]
 }

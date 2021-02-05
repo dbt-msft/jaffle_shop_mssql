@@ -6,6 +6,35 @@
           "*.sql": "jinja-sql",
           "**/target/**": ""
     },
+    // settings to auto-find related cells
+    // alt + R when you have a model file open to find the compiled version!
+    "findrelated.rulesets": [
+        {
+            "name": "sql",
+            "rules": [
+                {
+                    "pattern": "^(.*/)?models/(.*/)?(.+\\.sql)$",
+                    "locators": [
+                        "**/compiled/**/$3"
+                    ]
+                },
+                {
+                    "pattern": "^(.*/)?compiled/(.*/)?(.+\\.sql)$",
+                    "locators": [
+                        "**/run/**/$3"
+                    ]
+                },
+                {
+                    "pattern": "^(.*/)?run/(.*/)?(.+\\.sql)$",
+                    "locators": [
+                        "**/models/**/$3"
+                    ]
+                }
+            ]
+        }
+      ],
+    "findrelated.applyRulesets": ["sql"],
+    "findrelated.openSideBySide": true,
     "workbench.editor.highlightModifiedTabs": true,
     // make Command Prompt the default shell for Windows
     "terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe"
