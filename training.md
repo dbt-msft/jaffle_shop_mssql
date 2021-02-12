@@ -21,7 +21,7 @@ Ahead of the call if you could please download and install the following (if you
 - [Microsoft ODBC Driver 17](https://www.microsoft.com/en-us/download/details.aspx?id=56567)
 - [VSCode](https://code.visualstudio.com/Download)
 - [Azure Data Studio](https://docs.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio?view=sql-server-ver15)
-- [Azure CLI](https://git-scm.com/downloads)
+- [Azure CLI](https://git-scm.com/downloads) **wrong link, need to fix later**
 
 ## 1. Environment Set Up
 
@@ -37,31 +37,36 @@ There may be an issue where your terminal can't find Git or Anaconda, in which c
 Here we'll be using a version of the same repo that Fishtown uses for their training.
 
 
-
 ### VSCode
 
-Here's a partial list of steps
-0. Open VSCode
-   1. Clone [this repo](https://github.com/dbt-msft/jaffle_shop_mssql) in VSCode with the command pallette
-      1. (`CTRL + Shift + P`)
-      2. type Git: Clone and select the option
-      3. Paste the git url: `https://github.com/dbt-msft/jaffle_shop_mssql` and hit enter
-      4. Click "Open"
-   2. After cloning, you should be prompted to install some extensions -- you should! The extensions are:
-      1. `python extension`
-      2. `better jinja`
-      3. `vscode-dbt`
-      4. `rainbow csv`
-1. set up `profiles.yml`
-   1. open [profiles_example.yml](profiles_example.yml)
-   2. save it into your user folder in a new directory called `.dbt` and rename it to `profiles.yml`
-   3. change the `schema` field to your initials
-2. Open Azure Data Studio and to log in to our database
+Follow all the steps below in VSCode
+
+1. Clone [this repo](https://github.com/dbt-msft/jaffle_shop_mssql) in VSCode
+   1. Open VSCode and type (`CTRL + Shift + P`) to access the command palette located at the top.
+   2. Type `git: clone` and select the option.
+   3. Paste the git URL: `https://github.com/dbt-msft/jaffle_shop_mssql` and hit enter.
+   4. Choose which folder you want your code to go in and click "Select Repository Location".
+   6. A pop up message should appear on the lower right of VSCode asking if you would like to open the cloned repository. Click "Open".
+2. After cloning, you should be prompted to install some extensions -- you should! The extensions are:
+   * `python extension`
+   * `better jinja`
+   * `vscode-dbt`
+   * `rainbow csv`
+3. Now we need to set up `profiles.yml` to connect to our database. In our repo, this is called [`profiles_example.yml`](profiles_example.yml).
+   1. Create new directory called `.dbt` under your user folder (`C:\Users\your_user_folder`).
+   2. Open `profiles_example.yml`.
+   3. Save As the file into the `.dbt` directory you just made and rename it to `profiles.yml`.
+   4. Edit the file in VSCode and change the `schema` field on line 5 to your initials.
+4. Open a new terminal by clicking on "Terminal" at the top and "New Terminal"
+   1. Click "Allow" when a pop up appears asking if you allow the workspace to modify your terminal shell.
+      * If you see "PS" next to your current directory on the command line, that means you're using powershell and we don't want to use that. The fix: open a new terminal again and you should now be using cmd.
+   2. Since you already installed Anaconda, you should see `conda activate base` run automatically and (base) should be next to your current directory.
+5. Open Azure Data Studio and to log in to our database
    1. connection info:
       1. server: dbtavatrain.database.windows.net
       2. authentication type: Azure Active Directory
       3. database: sandbox
-3. touch db using dbt
+6. touch db using dbt
    1. open up a new terminal and run
       1. `az login`
       2. `az account set --subscription ff2e23ae-7d7c-4cbd-99b8-116bb94dca6e`
