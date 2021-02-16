@@ -211,5 +211,3 @@ After creating tables, we can run tests on them to see if each column is behavin
 - [the dbt viewpoint](https://docs.getdbt.com/docs/about/viewpoint)
 - [dbt-utils](https://github.com/fishtown-analytics/dbt-utils)
 - production workflow
-
-## 4. how can it help Avanade?
