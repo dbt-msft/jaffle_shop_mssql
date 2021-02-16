@@ -60,7 +60,6 @@ Here we'll be using a version of the same repo that Fishtown uses for their trai
       * If you see "PS" next to your current directory on the command line, that means you're using powershell and we don't want to use that. The fix: open a new terminal again and you should now be using cmd.
    3. Since you already installed Anaconda, you should see `conda activate base` run automatically and (base) should be next to your current directory.
    4. Create a new, empty environment by running `conda create -n dbtenv python=3.7.9`. The name of your environment is `dbtenv` and we are using Python version 3.7.9.
-      * *do we want to include this or should we just have them install in the base environment?*
    5. Install packages
       1. Run `pip install dbt-sqlserver`
       2. Run `pip install azure-cli`
@@ -107,7 +106,7 @@ Before we jump in and start creating dbt models, we need to first connect to our
 2. Paste the Azure SQL code below into the new query and click "Run" at the top. To view the Synapse version of the code click [here](external_synapse.sql).
    * *should we also have them edit the name of the table? bc everyone will have raw.customers already and there will be an error message when querying*
 
-```
+```sql
 CREATE EXTERNAL DATA SOURCE JaffleShopBlob
 WITH (
    TYPE = BLOB_STORAGE,
