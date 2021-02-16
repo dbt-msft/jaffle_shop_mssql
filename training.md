@@ -201,13 +201,9 @@ After creating tables, we can run tests on them to see if each column is behavin
 
 ### Additional Resources
 
-<!-- Now you're cut loose to learn from the best. [Here's a video](https://www.loom.com/share/c0e55d1734c849c184b1dd3b7df83f02) of me giving a partial intro to these resources
-
-here's where our special [`dim_customers.sql`](dim_customers.sql) lives (theirs doesn't work on TSQL) -->
-
-- [Kyle's amazing course](https://courses.getdbt.com)
-- [Claire's classic text + video walkthrough](https://docs.getdbt.com/tutorial/setting-up)
-- [thorough docs worth going through](https://docs.getdbt.com/docs/building-a-dbt-project/projects)
+- [Claire's classic text + video walkthrough](https://docs.getdbt.com/tutorial/setting-up) - check this out if you want to learn how to set up and deploy a dbt project using BigQuery (flip through the modules under "Getting Started" on the left)
+- [Kyle's amazing course](https://courses.getdbt.com) - this course shows you how to use dbt cloud and goes over some fundamental concepts around dbt
+- [thorough docs worth going through](https://docs.getdbt.com/docs/building-a-dbt-project/projects) - these are great overviews about modeling, testing, documentation, sources, and other additional topics we did not cover (flip through the topics under "Building a dbt Project" on the left)
 
 
 ## 3. dbt+msft better together
