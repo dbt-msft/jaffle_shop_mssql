@@ -103,7 +103,7 @@ Try the walk-through tutorial of using dbt below. There are also additional reso
 Before we jump in and start creating dbt models, we need to first connect to our external data source and pull our source tables from there. We will be pulling data from a blob storage called `JaffleShopBlob`.
 
 1. Open Azure Data Studio and create a "New Query" by right clicking on the server name and choosing the option.
-2. Paste the Azure SQL code below into the new query and click "Run" at the top. To view the Synapse version of the code click [here](external_synapse.sql).
+2. Paste the Azure SQL code below into the new query and click "Run" at the top. To view the Synapse version of the code click [here](scripts/external_synapse.sql).
    * *should we also have them edit the name of the table? bc everyone will have raw.customers already and there will be an error message when querying*
 
 ```sql
