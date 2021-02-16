@@ -20,7 +20,7 @@ Ahead of the call if you could please download and install the following (if you
 - [Microsoft ODBC Driver 17](https://www.microsoft.com/en-us/download/details.aspx?id=56567)
 - [VSCode](https://code.visualstudio.com/Download)
 - [Azure Data Studio](https://docs.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio?view=sql-server-ver15)
-- [Azure CLI](https://git-scm.com/downloads) **wrong link, need to fix later**
+- [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
 
 
 ## 1. Environment Set Up
