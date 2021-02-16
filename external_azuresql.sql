@@ -36,9 +36,3 @@ FROM OPENROWSET(
    FORMATFILE_DATA_SOURCE = 'JaffleShopBlob'
 ) as temp
 go
--- DROP EXTERNAL DATA SOURCE JaffleShopBlob
--- go
-
--- drop table raw.customers
--- drop table raw.orders
--- drop table raw.payments
