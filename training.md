@@ -97,10 +97,28 @@ Here we'll be using a version of the same repo that Fishtown uses for their trai
 
 Try the walk-through tutorial of using dbt below. There are also additional resources found at the end of this section as well. Happy modeling!
 
+### Prerequisites:
+
+1. Create an Azure SQL database. Go through the steps listed [here](https://docs.microsoft.com/en-us/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-portal). We recommend using Portal to create.
+      * Note: we will be creating our own data source with pre-populated tables so select None for the "Use existing data" section (Step 14 for Portal instructions).
+      * Caveats:
+         * If you choose the General Purpose option, you can choose between provisioned and serverless compute tiers. Expect this [connectivity limitation](https://docs.microsoft.com/en-us/azure/azure-sql/database/serverless-tier-overview#connectivity) when choosing serverless.
+         * If you pick less than the standard tier database, you will have to edit [dbt_project.yml](dbt_project.yml) and change the as_columnstore field on line 23 to "false" like below. For more information on tier comparisons click [here](https://docs.microsoft.com/en-us/azure/azure-sql/database/service-tiers-general-purpose-business-critical#service-tier-comparison).
+         ```yml
+         models:
+         jaffle_shop:
+               +as_columnstore: false
+         ```
+2. Authenticate to the database with Azure Active Directory
+   1. In Portal, navigate to the SQL server you created your database in.
+   2. On the left side panel, click on "Active Directory admin".
+   3. Click "Set admin", then select your email that you created your Azure credentials with.
+
 ### Tutorial
 
 #### 0. Connect to External Data Source
-Before we jump in and start creating dbt models, we need to locate our source tables. If you are making your own database, then you need to create an external data source and materialize the raw tables from the external data source. These are named `raw.customers`, `raw.orders`, and `raw.payments`. Follow the instructions below to connect to our blob storage called `JaffleShopBlob` and pull the data from there. Otherwise, if you already see the source tables under **Tables** in Azure Data Studio, skip this step and go to step 1.
+
+Before we jump in and start creating dbt models, we need to locate our source tables. If you are making your own database, then you need to create an external data source and materialize the raw tables from the external data source. These are named `raw.customers`, `raw.orders`, and `raw.payments`. Follow the instructions below to connect to our blob storage called `JaffleShopBlob` and pull the data from there. Otherwise, if you already see the source tables under **Tables** in Azure Data Studio, skip this and go to the next section.
 
 1. Open Azure Data Studio and create a "New Query" by right clicking on the server name and choosing the option.
 2. Paste the Azure SQL code below into the new query and click "Run" at the top. To view the Synapse version of the code click [here](scripts/external_synapse.sql).
