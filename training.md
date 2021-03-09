@@ -65,7 +65,7 @@ Here we'll be using a version of the same repo that Fishtown uses for their trai
       2. Run `pip install azure-cli`
 5. Log into Azure. We want to connect to the database via Azure CLI.
    1. Run `az login`
-   2. In the window that popped up, sign in with your Avanade credentials. Once signed, in you can close out of that window.
+   2. In the window that popped up, sign in with your Avanade credentials. Once signed, in you can close out of that window. If the window says that an error occurred and is directing you to a localhost url, you can try logging in using `az login --use-device-code`. This will provide you instructions to go to a general url and paste in the code provided on the command line.
    3. If you belong to multiple subscriptions, you must specify the subscription by running `az account set --subscription ff2e23ae-7d7c-4cbd-99b8-116bb94dca6e`. This is the ID for AzureCloud.
 6. Let's verify that we can connect to the database successfully.
    1. Run `dbt debug`. This command tries to connect to the database using the parameters from `profiles.yml` and `dbt_project.yml`.
