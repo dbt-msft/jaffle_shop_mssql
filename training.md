@@ -2,14 +2,16 @@
 
 Very humbled to have you all here to check out what we've been working on these past few months. Hopefully y'all will think it is as cool and useful as we have!
 
-This is the FIRST official training, so apologies for where the training could be rough around the edges. There are some success stories already in that we now have four people on the team that know dbt (3 of whom are here today to help out and learn more).
+This is a shortened version of the FIRST official training, so apologies for where the training could be rough around the edges. This version focuses on demonstrating how to **(1)** set up your environment, **(2)** connect your dbt project to a database, and **(3)** create some models with the dbt framework. There are some success stories already in that we now have four people on the team that know dbt (3 of whom are here today to help out and learn more).
 
 ## Table of Contents
 
 0. Download & Install Software
 1. Environment Set Up (30 min)
 2. Learn dbt commands & create models
-3. Anders's spiel
+3. Exercises
+4. Additional Resources
+3. dbt+msft scope
 
 
 ## 0. Download & Install Software
@@ -39,12 +41,12 @@ Here we'll be using a version of the same repo that Fishtown uses for their trai
    3. Paste the git URL: `https://github.com/chaerinlee1/jaffle_shop` and hit enter.
    4. Choose which folder you want your code to go in and click "Select Repository Location". I typically have all my repositories in `C:\Code`.
    6. A pop up message should appear on the lower right of VSCode asking if you would like to open the cloned repository. Click "Open".
-2. After cloning, you should be prompted to install some extensions -- you should! Click on the 5th icon from the top in the left window pane. Type in the following extensions in the search bar and install:
+2. After cloning, you should be prompted to install some extensions -- you should! Click on the 5th icon from the top in the left window pane. Or use the shortcut (`CTRL + SHIFT + X`). Type in the following extensions in the search bar and install:
    * `python extension`
    * `better jinja`
    * `vscode-dbt`
    * `rainbow csv`
-3. Create a new branch from the main branch by clicking on the bottom left button on the blue ribbon of VSCode (it should probably say main). Then click on "Create new branch from...". Name your branch (maybe to your initials e.g. "cl_dbttraining") and hit Enter. Click on "origin/main".
+3. Create a new branch from the main branch by clicking on the bottom left button on the blue ribbon of VSCode (it should probably say "main"). Then click on "Create new branch from...". Name your branch (maybe to your initials e.g. "cl_dbttraining") and hit Enter. Click on "origin/main".
 3. Now we need to set up `profiles.yml` to connect to our database.
    1. Create new directory called `.dbt` under your user folder (`C:\Users\your_user_folder`).
    2. Add the `.dbt` folder to your workspace in VSCode by clicking on File -> Add  Folder to Workspace... -> your new `.dbt` folder -> Add.
@@ -103,7 +105,7 @@ Here we'll be using a version of the same repo that Fishtown uses for their trai
 
 ## 2. Learn dbt commands and create models
 
-Try the walk-through tutorial of using dbt below. There are also additional resources found at the end of this section as well. Happy modeling!
+Try the walk-through tutorial of using dbt below as well as some exercises for you to try on your own. There are also additional resources found at the end of this section. Happy modeling!
 
 ### Tutorial
 
@@ -116,9 +118,9 @@ These seeds are located under `jaffle_shop\data`. **You might be wondering: What
 1. Let's load the CSV files into our data warehouse. Run `dbt seed` in the command line.
    * Once you've gotten the green "Completed Successfully" message, you can view the tables you just materialized in Azure Data Studio or SSMS. They are generated as **Tables** and can be found in the **Tables** folder with your schema in the name. You should see 3 tables get generated: `raw_customers`, `raw_orders`, and `raw_payments`
 
-#### 1. Materialization
+#### 1. Create models
 
-There are 3 different checkpoints for models in the dbt framework, listed below. To read more on how dbt projects are structured, check out this thread [here](https://discourse.getdbt.com/t/how-we-structure-our-dbt-projects/355).
+There are 3 different checkpoints for models in the dbt framework, listed below. To read more on how dbt projects are structured, check out this [article](https://discourse.getdbt.com/t/how-we-structure-our-dbt-projects/355) by Claire Carroll, dbt Community Manager.
 * **Sources** - raw data, i.e. the tables we created in the previous step
 * **Staging Models** - used for renaming columns, recasting, or any other transformations needed in order for the model to be in a consistent format; created from **sources** and have a 1:1 relationship with their respective source table
 * **Marts Models** - contains all necessary business logic with more complex transformations (joins, window functions, etc); created from **staging models**
@@ -138,28 +140,29 @@ Let's make some dbt models! The following steps will show the journey line of ho
       * Follow the same steps as the previous model. You will notice some Jinja code in this fiile. Jinja is a web template engine for Python and allows you to do for loops, like in this example, which is helpful to shorten repetitive code that can take up several lines in your code base - pretty powerful stuff! Alieu will go more in depth on Jinja in a later session!
    2. Do "Select Top 1000" on the `customers` and `orders` tables in Azure Data Studio or SSMS under **Tables** and take a look at these tables.
    3. *Note: If you're wondering what dictates whether a dbt model gets turned into a table or view, check out `dbt_project.yml`. You can see on lines 21-27 that we can choose which which SQL files will get materialized to a table or view at the model level. In our case, we set all the files in the `staging` folder to be views, and the rest as tables.*
-4. Congrats! You finished creating your first dbt project!
+4. Congrats! You finished creating your first dbt project! :tada:
    1. Run `dbt run`. Without the model parameter like in previous examples, this allows **all** the SQL files under the `models` folder to get materialized in SQL Server. Now, `customers` and `orders` are both materialized with one command, along with their parent tables.
 
-#### 2. Exercises
+## 3. Exercises
 
 Now that you have a basic understanding of how to create models, lets make some on your own while flexing your SQL muscles!
 
-Create models that solve each of the following scenarios. For each of the models, create a new SQL file by right clicking the `models` directory and giving each a relevant name:
+Create models that solve each of the following scenarios. For each of the models, create a new SQL file by right clicking the `models` directory and giving each a relevant name.
+
 1. Which payment method was the most popular in March 2018, and who are those people that used that payment method during that time?
+5. The `customers` table contains quite a few CTEs. Can you break up that file into multiple files so that there is 1 CTE containing transformations per file? I'm picturing 3 total files. For more information on the use of CTE's in dbt projects, check out [this section](https://docs.getdbt.com/docs/guides/best-practices#break-complex-models-up-into-smaller-pieces) of the dbt best practices page.
 2. Edit the `stg_payments` table so that the amount column is converted to Euros (imagine it was in USD before; 1 USD = 0.85 Euro).
 2. What were the most recent dates of each order status? Order the results by date.
 4. On average, how much does each customer spend per order? Please show the first name and last name initial in one column and order it by that column alphabetically.
-5. 
 
-### Additional Resources
+## 4. Additional Resources
 
 - [Claire's classic text + video walkthrough](https://docs.getdbt.com/tutorial/setting-up) - check this out if you want to learn how to set up and deploy a dbt project using BigQuery (flip through the modules under "Getting Started" on the left)
 - [Kyle's amazing course](https://courses.getdbt.com) - this course shows you how to use dbt cloud and goes over some fundamental concepts around dbt
 - [thorough docs worth going through](https://docs.getdbt.com/docs/building-a-dbt-project/projects) - these are great overviews about modeling, testing, documentation, sources, and other additional topics we did not cover (flip through the topics under "Building a dbt Project" on the left)
 
 
-## 3. dbt+msft better together
+## 5. dbt+msft better together
 
 - [the dbt viewpoint](https://docs.getdbt.com/docs/about/viewpoint)
 - [dbt-utils](https://github.com/fishtown-analytics/dbt-utils)
