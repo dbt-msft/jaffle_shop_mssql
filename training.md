@@ -150,8 +150,11 @@ Now that you have a basic understanding of how to create models, lets make some 
 Create models that solve each of the following scenarios. For each of the models, create a new SQL file by right clicking the `models` directory and giving each a relevant name.
 
 1. Which payment method was the most popular in March 2018, and who are those people that used that payment method during that time?
+2. Seed to marts model exercise:
+   1. I made a CSV file that contains the item of each transaction made at the Jaffle Shop. Take the CSV file from the chat and drag it into the `data` directory, where all the other seeds are. Load the seed file into the dbt project like we did previously.
+   2. For the staging table, rename the "id" column to "item_id" and make the "jaffle_type" column all lower case.
+   3. Create a model that shows what the most popular jaffle was in each month.
 5. The `customers` table contains quite a few CTEs. Can you break up that file into multiple files so that there is 1 CTE containing transformations per file? I'm picturing 3 total files. For more information on the use of CTE's in dbt projects, check out [this section](https://docs.getdbt.com/docs/guides/best-practices#break-complex-models-up-into-smaller-pieces) of the dbt best practices page.
-2. Edit the `stg_payments` table so that the amount column is converted to Euros (imagine it was in USD before; 1 USD = 0.85 Euro).
 2. What were the most recent dates of each order status? Order the results by date.
 4. On average, how much does each customer spend per order? Please show the first name and last name initial in one column and order it by that column alphabetically.
 
