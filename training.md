@@ -41,6 +41,7 @@ Here we'll be using a version of the same repo that Fishtown uses for their trai
    3. Paste the git URL: `https://github.com/chaerinlee1/jaffle_shop` and hit enter.
    4. Choose which folder you want your code to go in and click "Select Repository Location". I typically have all my repositories in `C:\Code`.
    6. A pop up message should appear on the lower right of VSCode asking if you would like to open the cloned repository. Click "Open".
+   6. Go to the dbt_crash_course branch by clicking on the bottom left button on the window (it should say main or master) and choosing the dbt_crash_course branch.
 2. After cloning, you should be prompted to install some extensions -- you should! Click on the 5th icon from the top in the left window pane. Or use the shortcut (`CTRL + SHIFT + X`). Type in the following extensions in the search bar and install:
    * `python extension`
    * `better jinja`
